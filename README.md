@@ -78,7 +78,7 @@ http://127.0.0.1:5000/api/v2/resources/books?published=2010
 ## Интеграционные тесты
 
 Интеграционные тесты проверяют полное взаимодействие между Flask API и базой данных SQLite.
-Все тесты находятся в файле tests/test_integration_api_db.py и запускаются командой:
+Все тесты находятся в файле `tests/test_integration_api_db.py` и запускаются командой:
 
 ```bash
 python -m pytest -v
