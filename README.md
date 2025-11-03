@@ -1,27 +1,80 @@
-# Simple Flask API
+# Лабораторная работа №2 (Simple Flask API)
+> Выполнил Зюзин Влалислав №3320
 
-This project presents a simple REST API with Python and Flask to retrieve book data from a Sqlite3 database.
+Этот проект представляет собой простой REST API на Python и Flask для получения данных о книгах из базы данных SQLite3. Ссылка на репу с которой был сделан форк - в проекте
 
-### How to use
+## Что было сделано в лабораторной работе
 
-1. Clone this project
-2. run ```pip install pipenv```
-3. run ```pipenv install```
-4. run ```python api.py```
+В этой лабораторной работе были написаны интеграционные тесты, проверяющие взаимодействие API с базой данных.
 
-### API request examples:
-To access the data, just open the browser and access the API as the examples below.
+Выполненные шаги:
 
-Get all books:
+1. Сделан форк и клонирование исходного репозитория.
+2. Настроено виртуальное окружение (venv) и установлены зависимости (Flask, pytest и др.).
+3. Созданы интеграционные тесты с использованием pytest для проверки работы API:
+* GET `/api/v2/resources/books/all` — получение всех книг.
+* GET `/api/v2/resources/books?author=<имя>` — фильтрация книг по автору.
+* GET `/api/v2/resources/books?published=<год>` — фильтрация книг по году издания.
+4. Тестировались сценарии пустого результата и обращения к несуществующему маршруту.
+5. Запуск тестов в виртуальном окружении:
+```bash
+python -m pytest -v
+```
+Все 5 интеграционных тестов прошли успешно, что подтверждает корректную работу API.
 
-``` http://127.0.0.1:5000/api/v2/resources/books/all```
+Пример вывода тестов:
+<img width="592" height="500" alt="image" src="https://github.com/user-attachments/assets/42632473-3f6b-4e5d-9cc1-5960f0bf86be" />
 
-Get books were the author is *Connie Willis*
+🚀 Как использовать
 
-```http://127.0.0.1:5000/api/v2/resources/books?author=Connie+Willis```
+Клонировать проект:
 
-Get books published in 2010
+git clone https://github.com/VladislaZyuzin/simple-flask-api-forlab2.git
+cd simple-flask-api-forlab2
 
-``` http://127.0.0.1:5000/api/v2/resources/books?published=2010```
 
-A running version of this API can be found [here](https://simpleflaskapi-cpatrickalves.herokuapp.com/).
+Создать и активировать виртуальное окружение:
+
+python3 -m venv venv
+source venv/bin/activate
+
+
+Установить зависимости:
+
+pip install -r requirements.txt
+pip install pytest
+
+
+Запустить API:
+
+python app.py
+
+🌐 Примеры запросов к API
+
+Получить все книги:
+
+http://127.0.0.1:5000/api/v2/resources/books/all
+
+
+Получить книги автора Connie Willis:
+
+http://127.0.0.1:5000/api/v2/resources/books?author=Connie+Willis
+
+
+Получить книги, изданные в 2010 году:
+
+http://127.0.0.1:5000/api/v2/resources/books?published=2010
+
+
+Запущенную версию этого API можно посмотреть здесь
+.
+
+✅ Интеграционные тесты
+
+Интеграционные тесты проверяют полное взаимодействие между Flask API и базой данных SQLite.
+Все тесты находятся в файле tests/test_integration_api_db.py и запускаются командой:
+
+python -m pytest -v
+
+
+Все тесты прошли успешно, что подтверждает корректную работу API.
