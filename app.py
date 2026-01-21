@@ -76,7 +76,7 @@ def add_book():
     
     # Receives the data in JSON format in a HTTP POST request
     if not request.is_json:
-        return "<p>The content isn't of type JSON<\p>"
+        return "<p>The content isn't of type JSON</p>"
 
     content = request.get_json()
     title = content.get('title')
